@@ -1,0 +1,43 @@
+
+<div>
+    <label for="cat">Select Category:</label>
+    <select name="cat" id="cat" [(ngModel)]="selectedCatID" >
+        <option value="0">All</option>
+        <option *ngFor="let c of catlist"[value]="c.id">{{c.Name}}</option>
+        
+    </select>
+</div>
+<table class="table">
+    <thead>
+        <tr class="text-center">
+            <th>Name</th>
+            <th>Price</th>
+            <th>count</th>
+            <th>totalPrice</th>
+            <th>Delete</th>
+        
+        </tr>
+    </thead>
+    <tbody>
+        <!-- <ng-container *ngFor="let p of productcatlist;let i=index"> -->
+            <!-- <tr class="text-center" *ngIf="p.Quantity>0" [ngStyle]="{'background-color':(p.Quantity==1)?'lightyellow':'lightblue'}"> -->
+               <tr class="text-center "*ngFor="let p of arrProduct;let i=index">
+                <td>{{p.product.Name}}</td>
+                <td>{{p.product.Price}}</td>
+                <!-- <td>{{productcart.Price | currency:'EGP':'code'}}</td> -->
+                <td>{{p.count }}</td>
+                <td>{{p.count * p.product.Price}}</td>
+                <td><button class="btn btn-danger" (click)="deleteproduct(p.product.id)">delete</button></td>
+                <!-- <td>{{productcart.Price *cocart}}</td> -->
+            </tr>
+            <!-- </tr> -->
+<!-- 
+        </ng-container> -->
+    </tbody>
+</table>
+<!-- <h1>{{totalPriceChanged}}</h1>
+<h1>{{selectedCatID}}</h1>
+<h1>id of cart product{{productcart}}</h1>
+<h1>count of cart product{{cocart}}</h1> -->
+<!-- <app-product [recivedcatid]="selectedCatID"(totalPriceEvent)="totalprice($event)"></app-product> -->
+<app-product [recivedcatid]="selectedCatID"(Productcart)="getproduct($event)"></app-product>

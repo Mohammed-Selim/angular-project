@@ -1,0 +1,52 @@
+<!-- <button (click)="addNew()">AddNewProduct</button> -->
+<!-- <button class="btn btn-primary" (click)="addNew()">Add</button> -->
+
+
+<form (ngSubmit)="addNew()" #formref="ngForm">
+  <div class="mb-3">
+    <label for="prdName" class="form-label">Product Name</label>
+    <input type="text" class="form-control" name="prdName" id="prdName" #prodNameInput="ngModel" [(ngModel)]="pro.Name"
+      required pattern="[A-Za-z]{2,10}"  [class.is-valid]="prodNameInput.valid" [class.is-invalid]="prodNameInput.invalid">
+    <!-- <input type="text" #prodNameInput="ngModel" class="form-control" name="prdName" id="prdName" [(ngModel)]="prd.name" required pattern="[A-Za-z]{2,10}" [class.is-valid]="prodNameInput.valid" [class.is-invalid]="prodNameInput.invalid"> -->
+
+    <div class="alert alert-danger" [hidden]="prodNameInput.valid || prodNameInput.untouched">
+
+
+      <div>
+        <div *ngIf="prodNameInput.errors?.['required']">Product Name is required</div>
+        <div *ngIf="prodNameInput.errors?.['pattern']">product name is must be at least 2 characters</div>
+      </div>
+    </div>
+  </div>
+<div class="mb-3">
+  <label for="prdImg" class="form-label">Image URL</label>
+  <input type="text" #prodNameInput="ngModel" class="form-control" name="prdImg" id="prdImg" [(ngModel)]="pro.ImgUrl" >
+</div>
+
+  <div class="mb-3">
+      <label for="prdQuant" class="form-label">Quantity</label>
+      <input type="number" class="form-control" name="prdQuant" id="prdQuant" required [(ngModel)]="pro.Quantity">
+    </div>
+  
+    <div class="mb-3">
+      <label for="prdPrc" class="form-label">Price</label>
+      <input type="number" class="form-control" name="prdPrc" id="prdPrc" required [(ngModel)]="pro.Price">
+    </div>
+
+  <div class="mb-3">
+      <label for="prdCat" class="form-label">Select Category</label>
+      <select class="form-control" name="prdCat" id="prdCat" required [(ngModel)]="pro.CateogryID">
+        <option *ngFor="let cat of catlist" [value]="cat.id">
+          {{cat.Name}}
+        </option>
+      </select>
+    </div>
+
+
+  <button type="submit" class="btn btn-success" [disabled]="formref.invalid">Save</button>
+</form>
+
+
+<!-- <h1>{{prd|json}}</h1> -->
+<!-- <h2>{{prodNameInput.className}}</h2> -->
+<!-- <h1>{{prodNameInput.errors|json}}</h1> -->

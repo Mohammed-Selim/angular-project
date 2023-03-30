@@ -1,0 +1,10 @@
+<div class="card mt-3 " RoundedBorder='5px' borderColor="black" BGCOLOR  style="width:20rem;">
+    <img [src]="prod?.ImgUrl" alt="...">
+    <div class="card-body">
+      <h5  class="card-title">Name: {{prod?.Name}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted ">Price: {{prod?.Price}}</h6>
+      <h5 class="card-title">Quantity: {{prod?.Quantity}}</h5>
+      <button class="btn btn-warning" (click)="goback()">GoBack</button>
+  
+    </div>
+  </div>

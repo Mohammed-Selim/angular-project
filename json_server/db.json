@@ -1,0 +1,68 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "Name": "product",
+      "Quantity": 5,
+      "Price": 50,
+      "ImgUrl": "assets/cercl_img2.png",
+      "CateogryID": 2
+    },
+    {
+      "id": 2,
+      "Name": "product1",
+      "Quantity": 5,
+      "Price": 5,
+      "ImgUrl": "assets/cercl_img2.png",
+      "CateogryID": 1
+    },
+    {
+      "id": 3,
+      "Name": "product1",
+      "Quantity": 5,
+      "Price": 5,
+      "ImgUrl": "assets/cercl_img2.png",
+      "CateogryID": 2
+    },
+    {
+      "id": 4,
+      "Name": "product1",
+      "Quantity": 5,
+      "Price": 5,
+      "ImgUrl": "assets/cercl_img2.png",
+      "CateogryID": 2
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "laptop"
+    },
+    {
+      "id": 2,
+      "name": "moblle"
+    },
+    {
+      "id": 3,
+      "name": "tv"
+    }
+  ]
+}

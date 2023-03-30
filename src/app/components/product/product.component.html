@@ -1,0 +1,65 @@
+<!-- <h1>Product name is {{product.Name}}</h1>
+<img src="{{product.ImgUrl}}">
+<ul>
+    <li *ngFor="let i of st.branches">{{i}}</li>
+</ul>
+<h1>Client name is {{ClientName}}</h1>
+
+<h1>{{st.name}}</h1> -->
+
+
+<table class="table container">
+    <thead>
+        <tr class="text-center">
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>img</th>
+            <th>buy</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- <ng-container *ngFor="let p of productcatlist;let i=index"> -->
+                <ng-container *ngFor="let p of productlist;let i=index">
+            <!-- <tr *ngIf="p.Quantity>0" [ngClass]="{'bg-warning':p.Quantity==1}"> -->
+            <tr class="text-center" *ngIf="p.Quantity>0" [ngStyle]="{'background-color':(p.Quantity==1)?'lightyellow':'lightblue'}">
+                <td>{{p.Name | uppercase}}</td>
+                <td>{{p.Price | currency:'EGP':'code'}}</td>
+                <td>{{p.Quantity}}</td>
+                <td><img class="img-fluid" RoundedBorder='10px' borderColor='green' [src]="p.ImgUrl"></td>
+                <!-- <td><button class="btn btn-success" (click)="decrease(p)">buy</button></td> -->
+
+                <td><input type="number" name="count" id="count" class="form-control" #count></td>
+                <!-- <td><button class="btn btn-success" (click)="gettotalprice(p.Price,count.value)">buy</button></td> -->
+                <td><button class="btn btn-success" (click)="getProduct(p,count.value)">AddToCart</button></td>
+                <td><button class="btn btn-success" (click)="p.Quantity=p.Quantity-1">buy</button></td>
+                <!-- <input type="text" [(ngModel)]="p.Quantity"> -->
+                <td><button class="btn btn-success" (click)="prdDetails(p.id)">Details</button></td>
+                <td><button class="btn btn-success" (click)="updateprod(p.id)">Update</button></td>
+                <td><button class="btn btn-success" (click)="deletepro(p.id)">delete</button></td>
+            </tr>
+
+        </ng-container>
+    </tbody>
+</table>
+
+<h3>{{mypirth | birthDate}}</h3>
+<h3>{{mycard | creditcard}}</h3>
+<h3>{{x | tax}}</h3>
+<!-- <input type="number" name="count" id="count" class="form-control" #ct>
+<button class="btn btn-success" (click)="getid(ct.value)">sendid</button> -->
+<!-- <h4 >For test total price from products component : {{orderTotalPrice}}</h4>  -->
+
+
+
+
+<!-- 
+<img [src]="st.LogoURL" *ngIf="showlogo" width="80" alt="">
+<br>
+<h3 *ngIf="!showlogo">Thanks for purchasing from our Store {{ClientName}} </h3>
+<button class="btn btn-primary" (click)="toggle()">toggle</button> -->
+<!-- 
+<h3>{{date1|date:'short'}}</h3>
+<p>{{product2.Price | currency:'EGP':'code'}}</p>
+<p>{{product2.Name | uppercase}}</p> -->
